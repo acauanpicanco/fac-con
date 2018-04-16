@@ -1,0 +1,28 @@
+#CORS - cross-origin HTTP request
+<IfModule mod_headers.c>
+  Header add Access-Control-Allow-Origin: "http://designio.com.br"
+  Header add Access-Control-Allow-Methods: "GET,POST,OPTIONS,DELETE,PUT"
+  Header add Access-Control-Allow-Headers: "X-Requested-With, Content-Type"
+</IfModule>
+# URL REWRITE
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  Options -MultiViews
+  ErrorDocument 404 /404
+  RewriteRule ^home$ index.php
+  
+
+
+  RewriteRule ^produtos$ page-produtosListar.php
+  RewriteRule ^produtos/editar$ page-produtos.php
+  
+  RewriteRule ^clientes$ page-clientesListar.php
+  RewriteRule ^clientes/editar$ page-clientes.php
+
+  RewriteRule ^compras$ page-comprasListar.php
+  RewriteRule ^compras/editar$ page-compras.php
+    
+
+</IfModule>

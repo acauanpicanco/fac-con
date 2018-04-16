@@ -1,0 +1,22 @@
+/* ALL */
+
+body { 
+	font-family: 'Open Sans', sans-serif;
+	height:100%;
+}
+
+input { 
+	font-family: 'Open Sans', sans-serif;
+}
+
+body{
+	float: left;
+	h1.testegulp{
+		font-size: 10px;
+		span{
+			color: blue;
+			transition: 200ms;
+			transform: scale(2);
+		}
+	}
+}
