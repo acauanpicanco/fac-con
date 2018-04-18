@@ -7,30 +7,12 @@ include "inc-header.php";
 	<div class="container">
 		<div class="row">
 			<h2 class="col-md-12">Listagem de Compras</h2>
+
+			<a class="col-md-2 btn btn-primary" href="facil-consulta/site/fac-con/src/compras/editar">Nova Compra</a>
+
 			<div class="col-md-12">
 				<ul class="list-group">
-					<li class="list-group-item">
-						<p>Nome do Cliente</p>
-						<p>Nome do produto</p>
-					   <button id="inserir" name="inserir" class="btn btn-primary">Editar</button>
-					    <button id="inserir" name="inserir" class="btn btn-primary">Excluir</button>
-					</li>
-					<li class="list-group-item">
-						<p>Nome do Cliente</p>
-						<p>Nome do produto</p>
-					   <button id="inserir" name="inserir" class="btn btn-primary">Editar</button>
-					    <button id="inserir" name="inserir" class="btn btn-primary">Excluir</button>
-					   
-					  
-					</li>
-					<li class="list-group-item">
-						<p>Nome do Cliente</p>
-						<p>Nome do produto</p>
-					   <button id="inserir" name="inserir" class="btn btn-primary">Editar</button>
-					    <button id="inserir" name="inserir" class="btn btn-primary">Excluir</button>
-					   
-					  
-					</li>
+					<?=listaCompras()?>
 				</ul>
 			</div>
 		</div>
