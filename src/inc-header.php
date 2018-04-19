@@ -40,14 +40,7 @@
     <ul class="navbar-nav">
      
       
-       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="menuCompras" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Compras</a>
-        <div class="dropdown-menu" aria-labelledby="menuCompras">
-          <a class="dropdown-item" href="facil-consulta/site/fac-con/src/compras">Listar</a>
-          <a class="dropdown-item" href="facil-consulta/site/fac-con/src/compras/editar">Adicionar</a>
-          
-        </div>
-      </li>
+       
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="menuprodutos" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Produtos</a>
@@ -62,6 +55,15 @@
         <div class="dropdown-menu" aria-labelledby="menuclientes">
           <a class="dropdown-item" href="facil-consulta/site/fac-con/src/clientes">Listar</a>
           <a class="dropdown-item" href="facil-consulta/site/fac-con/src/clientes/editar">Adicionar</a>
+          
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="menuCompras" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Compras</a>
+        <div class="dropdown-menu" aria-labelledby="menuCompras">
+          <a class="dropdown-item" href="facil-consulta/site/fac-con/src/compras">Listar</a>
+          <a class="dropdown-item" href="facil-consulta/site/fac-con/src/compras/editar">Adicionar</a>
           
         </div>
       </li>

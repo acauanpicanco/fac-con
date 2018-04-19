@@ -8,6 +8,59 @@ error_reporting(E_ERROR);
 include_once "db.php";
 include_once "functions.php";
 
+//HASH
+$hash = "1q2rt6y-";
+$salt = "1q2rt6y-";
+
+//UPLOAD DIR
+$uploaddir = 'upload/';
+
+
+
+function dataBanco($data){
+	return implode("-", array_reverse(explode("/", $data)));
+}
+
+function dataExibe($data){
+	return implode("/", array_reverse(explode("-", $data)));
+}
+
+function timestamp($timestamp){
+	$timestamp = explode(" ", $timestamp);
+	$timestamp[0] = dataExibe($timestamp[0]);
+	return $timestamp;
+}
+
+
+
+
+
+
+function dataRegistro($tipo, $data){
+	if($tipo == "novo"){
+		echo date("d/m/Y");
+	}
+	if($tipo == "editar"){
+		echo dataExibe($data);
+	}
+}
+
+function selectCheck($a, $b){
+	if($a == $b){
+		echo "selected";
+	}
+}
+
+function selectEstado($id){
+	global $db;
+	
+	$consulta = $db->query("SELECT * FROM u_estado");
+	while($resultado = $consulta->fetch_assoc()){
+		?>
+		<option value="<?=$resultado['id']?>" <?if($id == $resultado['id']) echo "selected"?>><?=$resultado['nome']?></option>
+	<?}
+}
+
 function selectCliente($id){
 	global $db;
 	
