@@ -99,7 +99,7 @@ function listaClientes($s){
 	global $config;
 
 	if($s != ""){
-		$s = "titulo LIKE '%$s%' AND";
+		$s = "sexo LIKE '%$s%' AND";
 	}
 
 	$consulta = $db->query("SELECT * FROM cliente WHERE ".$s." status != 3 ORDER BY nome ASC");
@@ -107,9 +107,9 @@ function listaClientes($s){
 	if($consulta->num_rows != 0){
 		while($res = $consulta->fetch_assoc()){?>
 			<li class="list-group-item col-md-6">
-				<p class="col-md-12"><?=$res['nome']?></p>
-				<p class="col-md-12"><?=$res['telefone']?></p>
-				<p class="col-md-12"><?=$res['sexo'] == "m" ? "Masculino" : "Feminino";?></p>
+				<p class="col-md-12">Nome: <?=$res['nome']?></p>
+				<p class="col-md-12">Telefone: <?=$res['telefone']?></p>
+				<p class="col-md-12">Sexo: <?=$res['sexo'] == "m" ? "Masculino" : "Feminino";?></p>
 			   <a href="facil-consulta/site/fac-con/src/clientes/editar?id=<?=$res['id']?>" id="inserir" name="inserir" class="btn btn-primary col-xs-2 ">Editar</a>
 			    <button id="excluir" name="excluir" class="btn btn-primary col-xs-2 js-excluir" data-id="<?=$res['id']?>" data-item="cliente">Excluir</button>
 			</li>
@@ -124,7 +124,7 @@ function listaProdutos($s){
 	global $config;
 
 	if($s != ""){
-		$s = "nome LIKE '%$s%' AND";
+		$s = "titulo LIKE '%$s%' AND";
 	}
 
 	$consulta = $db->query("SELECT * FROM produto WHERE ".$s." status != 3 ORDER BY titulo ASC");
@@ -134,8 +134,8 @@ function listaProdutos($s){
 			
 
 			<li class="list-group-item">
-				<p class="col-xs-12"><?=$res['titulo']?></p>
-				<p class="col-xs-12"><?=$res['descricao']?></p>
+				<p class="col-xs-12">Titulo do produto: <?=$res['titulo']?></p>
+				<p class="col-xs-12">Descrição do produto: <?=$res['descricao']?></p>
 			   	<a href="facil-consulta/site/fac-con/src/produtos/editar?id=<?=$res['id']?>" id="inserir" name="inserir" class="btn btn-primary col-xs-2 ">Editar</a>
 			    <button id="excluir" name="excluir" class="btn btn-primary col-xs-2 js-excluir" data-id="<?=$res['id']?>" data-item="produto">Excluir</button>
 			   
@@ -170,12 +170,15 @@ function listaCompras($s){
 		$consulta_produto = $db->query("SELECT * FROM produto WHERE id = ".$res['id_produtos']." ");
 		$res_produto = $consulta_produto->fetch_assoc();
 
-	?>
+			
 
+	?>
+			
 
 			<li class="list-group-item">
 				<p>Nome do Cliente :<?=$res_cliente['nome']?></p>
 				<p>Nome do Produto: <?=$res_produto['titulo']?></p>
+				<p>Data da compra: <?=date('d/m/y', strtotime($res_produto['timestamp'])); ?></p>
 			   	<a href="facil-consulta/site/fac-con/src/compras/editar?id=<?=$res['id']?>" id="inserir" name="inserir" class="btn btn-primary col-xs-2 ">Editar</a>
 			    <button id="excluir" name="excluir" class="btn btn-primary col-xs-2 js-excluir" data-id="<?=$res['id']?>" data-item="compra">Excluir</button>
 
